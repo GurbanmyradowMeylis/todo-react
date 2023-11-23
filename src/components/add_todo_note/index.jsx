@@ -1,7 +1,14 @@
-import { Stack, TextField, Button, Typography } from "@mui/material";
+import {
+  Stack,
+  TextField,
+  Button,
+  Typography,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
 import { useState } from "react";
 
-export default function AddTodo({ setTodos, todos, id, setId }) {
+export default function AddTodoNote({ setTodos, todos, id, setId }) {
   const [value, setValue] = useState();
   return (
     <Stack gap={5}>
@@ -15,6 +22,7 @@ export default function AddTodo({ setTodos, todos, id, setId }) {
           label="Your todo"
           onChange={(e) => setValue(e.target.value)}
         />
+        <FormControlLabel control={<Checkbox />} label={"is important?"} />
       </Stack>
       <Button
         variant="contained"

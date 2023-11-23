@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddTodo from "./components/add_todo/index";
+import AddTodoNote from "./components/add_todo_note/index";
 import TodoNotes from "./components/todo/TodoNotes";
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <div className="flex flex-col items-center gap-10">
-        <AddTodo setTodos={setTodos} todos={todos} id={id} setId={setId} />
+        <AddTodoNote setTodos={setTodos} todos={todos} id={id} setId={setId} />
         <TodoNotes todos={todos} />
       </div>
     </div>
