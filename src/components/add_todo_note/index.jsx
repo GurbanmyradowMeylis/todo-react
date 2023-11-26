@@ -9,7 +9,17 @@ import {
 import { useState } from "react";
 
 export default function AddTodoNote({ setTodos, todos, id, setId }) {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState({
+    text: "",
+    isImportant: false,
+  });
+
+  function handleChange(content, key) {
+    setValue({
+      ...value,
+      [key]: content,
+    });
+  }
   return (
     <Stack gap={5}>
       <Typography variant="h2" sx={{ textAlign: "center" }}>
@@ -20,9 +30,16 @@ export default function AddTodoNote({ setTodos, todos, id, setId }) {
           variant="outlined"
           color="primary"
           label="Your todo"
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => handleChange(e.target.value, "text")}
         />
-        <FormControlLabel control={<Checkbox />} label={"is important?"} />
+        <FormControlLabel
+          control={
+            <Checkbox
+              onChange={(e) => handleChange(e.target.checked, "isImportant")}
+            />
+          }
+          label={"is important?"}
+        />
       </Stack>
       <Button
         variant="contained"
@@ -31,8 +48,9 @@ export default function AddTodoNote({ setTodos, todos, id, setId }) {
           setTodos([
             ...todos,
             {
-              text: value,
+              text: value.text,
               id,
+              isImportant: value.isImportant,
             },
           ]);
           setId(id + 1);

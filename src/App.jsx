@@ -10,7 +10,7 @@ export default function App() {
     <div className="min-h-screen">
       <div className="flex flex-col items-center gap-10">
         <AddTodoNote setTodos={setTodos} todos={todos} id={id} setId={setId} />
-        <TodoNotes todos={todos} />
+        <TodoNotes todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );
