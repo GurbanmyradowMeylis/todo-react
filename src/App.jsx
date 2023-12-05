@@ -1,10 +1,10 @@
 import { useState } from "react";
-import AddTodoNote from "./components/add_todo_note/AddTodoNote";
+import AddTodoNote from "./components/add_todo_note";
 import TodoNotes from "./components/todo/TodoNotes";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const [_, setId] = useState(0);
+  const [id, setId] = useState(0);
 
   return (
     <div className="min-h-screen">

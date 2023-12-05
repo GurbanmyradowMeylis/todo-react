@@ -1,4 +1,6 @@
-export default function TodoNote({ text, id, isImportant, setTodos }) {
+import { memo } from "react";
+
+function TodoNote({ text, id, isImportant, setTodos }) {
   function handleChecked(e) {
     setTodos((prev) => {
       return [
@@ -33,6 +35,7 @@ export default function TodoNote({ text, id, isImportant, setTodos }) {
             <input
               className="w-4 h-4"
               type="checkbox"
+              checked={isImportant}
               onChange={(e) => handleChecked(e)}
             />
             <span className="text-lg">Is Important</span>
@@ -42,3 +45,4 @@ export default function TodoNote({ text, id, isImportant, setTodos }) {
     </div>
   );
 }
+export default memo(TodoNote);
