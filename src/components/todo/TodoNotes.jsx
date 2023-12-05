@@ -1,21 +1,15 @@
-import { Grid } from "@mui/material";
 import TodoNote from "./TodoNote";
 
-export default function TodoNotes({ todos, setTodos }) {
-  console.log(todos);
+function TodoNotes({ todos, setTodos }) {
   return (
-    <Grid
-      container
-      spacing={5}
-      sx={{ width: "100%" }}
-      p={5}
-      alignItems={"center"}
-    >
+    <div className="grid grid-cols-4 gap-5 w-full items-center p-5">
       {todos.map((item, i) => (
-        <Grid key={i} item xs={6} md={4} lg={3}>
+        <div key={i}>
           <TodoNote {...item} setTodos={setTodos} />
-        </Grid>
+        </div>
       ))}
-    </Grid>
+    </div>
   );
 }
+
+export default TodoNotes;
