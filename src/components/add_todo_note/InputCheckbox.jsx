@@ -6,9 +6,12 @@ function InputCheckbox({ handleChange }) {
       <input
         className="w-4 h-4"
         type="checkbox"
+        id="checkbox"
         onChange={(e) => handleChange(e.target.checked, "isImportant")}
       />
-      <span className="text-lg">Is Important</span>
+      <label htmlFor="checkbox" className="text-lg">
+        Is Important
+      </label>
     </div>
   );
 }

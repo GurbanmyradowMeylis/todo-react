@@ -1,18 +1,8 @@
 import { memo } from "react";
 
-function TodoNote({ text, id, isImportant, setTodos }) {
+function TodoNote({ text, id, isImportant, todosDispatch }) {
   function handleChecked(e) {
-    setTodos((prev) => {
-      return [
-        ...prev.slice(0, id),
-        {
-          text,
-          isImportant: e.target.checked,
-          id,
-        },
-        ...prev.slice(id + 1),
-      ];
-    });
+    todosDispatch({ type: "rendering-note", e, text, id });
   }
 
   return (
